@@ -1,0 +1,21 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  date: 2024-03-09
+  opponent_team_name: MyString
+  city: MyString
+  is_victory: false
+  is_home_team: false
+  score: 1
+  opponent_score: 1
+  team: one
+
+two:
+  date: 2024-03-09
+  opponent_team_name: MyString
+  city: MyString
+  is_victory: false
+  is_home_team: false
+  score: 1
+  opponent_score: 1
+  team: two

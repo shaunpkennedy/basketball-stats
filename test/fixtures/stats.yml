@@ -1,0 +1,37 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  points_scored: 1
+  field_goals_made: 1
+  field_goals_attempted: 1
+  two_pointers_made: 1
+  two_pointers_attempted: 1
+  three_pointers_made: 1
+  three_pointers_attempted: 1
+  free_throws_made: 1
+  free_throws_attempted: 1
+  assists: 1
+  rebounds: 1
+  steals: 1
+  blocks: 1
+  fouls: 1
+  started_game: false
+  game: one
+
+two:
+  points_scored: 1
+  field_goals_made: 1
+  field_goals_attempted: 1
+  two_pointers_made: 1
+  two_pointers_attempted: 1
+  three_pointers_made: 1
+  three_pointers_attempted: 1
+  free_throws_made: 1
+  free_throws_attempted: 1
+  assists: 1
+  rebounds: 1
+  steals: 1
+  blocks: 1
+  fouls: 1
+  started_game: false
+  game: two
