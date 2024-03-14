@@ -35,9 +35,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_09_195904) do
   end
 
   create_table "stats", force: :cascade do |t|
-    t.integer "points_scored"
-    t.integer "field_goals_made"
-    t.integer "field_goals_attempted"
     t.integer "two_pointers_made"
     t.integer "two_pointers_attempted"
     t.integer "three_pointers_made"

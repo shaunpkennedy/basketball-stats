@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   resources :teams
   resources :games
   resources :stats
+
+  root to: "main#index"
 end
