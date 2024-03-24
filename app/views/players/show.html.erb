@@ -8,7 +8,12 @@
       <% if @player.teams.any? %>
         <ul class="list-group">
           <% @player.teams.each do |team| %>
-            <li class="list-group-item"><%= link_to team.name, player_team_path(@player, team) %></li>
+            <li class="list-group-item">
+              <%= link_to edit_player_team_path(@player, team), class: "btn btn-link" do %>
+                <i class="bi bi-pencil-square"></i> <!-- Edit icon -->
+              <% end %>              
+              <%= link_to team.name, player_team_path(@player, team) %>
+            </li>
           <% end %>
         </ul>
       <% else %>
