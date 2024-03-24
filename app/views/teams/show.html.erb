@@ -1,0 +1,16 @@
+<div class="container mt-4">
+  <h1>Team Details</h1>
+
+  <div class="card mt-4">
+    <div class="card-body">
+      <h5 class="card-title">Team Name: <%= @team.name %></h5>
+      <p class="card-text">Year: <%= @team.year %></p>
+      <p class="card-text">Number: <%= @team.number %></p>
+    </div>
+  </div>
+
+  <div class="mt-4">
+    <%= link_to 'Edit', edit_player_team_path(@team), class: "btn btn-primary" %>
+    <%= link_to 'Back', player_teams_path(@team.player), class: "btn btn-secondary" %>
+  </div>
+</div>

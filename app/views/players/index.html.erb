@@ -1,8 +1,11 @@
-<div class="d-flex justify-content-between align-items-center">
+<div class="container mt-4">
+  <div class="d-flex justify-content-between align-items-center">
     <h1>Players</h1>
-</div>
-<% @players.each do |player| %>
-  <div class="mb-3 card card-body">    
-        <%= link_to player.name, player_path(player) %>
   </div>
-<% end %>
+  <% @players.each do |player| %>
+    <div class="mb-3 card card-body">    
+      <%= link_to player.name, player_path(player) %>
+    </div>
+  <% end %>
+  <%= link_to "Add Player", new_player_path, class: "btn btn-primary" %>
+</div>

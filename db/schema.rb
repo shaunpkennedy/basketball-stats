@@ -28,12 +28,6 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_09_195904) do
     t.index ["team_id"], name: "index_games_on_team_id"
   end
 
-  create_table "players", force: :cascade do |t|
-    t.string "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "stats", force: :cascade do |t|
     t.integer "two_pointers_made"
     t.integer "two_pointers_attempted"
@@ -54,13 +48,22 @@ ActiveRecord::Schema[7.1].define(version: 2024_03_09_195904) do
   end
 
   create_table "teams", force: :cascade do |t|
+    t.bigint "player_id", null: false
     t.string "name"
     t.integer "year"
     t.integer "number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["player_id"], name: "index_teams_on_player_id"
   end
 
+  create_table "players", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "teams", "players"
   add_foreign_key "games", "teams"
   add_foreign_key "stats", "games"
 end

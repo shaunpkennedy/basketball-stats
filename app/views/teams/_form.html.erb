@@ -1,0 +1,28 @@
+<%= form_with(model: [@player, @team]) do |form| %>
+    <%= render "shared/form_errors", form: form %>
+
+    <div class="mb-3">
+        <%= form.label :name %>
+        <%= form.text_field :name, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.label :year %>
+        <%= form.text_field :year, class: "form-control" %>
+    </div>
+
+    <div class="mb-3">
+        <%= form.label :number %>
+        <%= form.text_field :number, class: "form-control" %>
+    </div>
+
+    <div class="actions">
+    <%= form.submit "Save", class: "btn btn-primary", data: { turbo: "false" } %>
+  </div>
+    
+    
+    <% if form.object.persisted? %>
+        <%= link_to "Delete", form.object, method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %>
+    <% end %>
+
+<% end %>

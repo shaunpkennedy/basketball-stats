@@ -1,3 +1,27 @@
-<h1><%= @player.name %></h1>
-<%= link_to 'Edit', edit_player_path(@player) %> |
-<%= link_to 'Back', players_path %>
+<div class="container mt-4">
+  <div class="row">
+    <div class="col-md-8">
+      <h1><%= @player.name %></h1>
+      <%= link_to 'Edit Player', edit_player_path(@player), class: "btn btn-info" %>
+      
+      <h2 class="mt-4">Teams</h2>
+      <% if @player.teams.any? %>
+        <ul class="list-group">
+          <% @player.teams.each do |team| %>
+            <li class="list-group-item"><%= link_to team.name, player_team_path(@player, team) %></li>
+          <% end %>
+        </ul>
+      <% else %>
+        <p>No teams found.</p>
+      <% end %>
+
+      <div class="mt-4">
+        <%= link_to "Add a Team", new_player_team_path(@player), class: "btn btn-primary" %>
+      </div>
+
+    </div>
+    <div class="col-md-4 text-end">
+      <%= link_to 'Back', players_path, class: "btn btn-outline-secondary" %>
+    </div>
+  </div>
+</div>

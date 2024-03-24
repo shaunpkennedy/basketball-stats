@@ -1,3 +1,11 @@
 <div class="d-flex justify-content-between align-items-center">
     <h1>Teams</h1>
 </div>
+
+<%= link_to "Back to Player", player_path(@player) %>
+
+<%= link_to "Add a Team", new_player_team_path(@player), class: "btn btn-primary" %>
+
+<% @teams.each do |team| %>
+  <p><%= team.name %></p>
+<% end %>
