@@ -10,7 +10,7 @@
   </div>
 
   <div class="mt-4">
-    <%= link_to 'Edit', edit_player_team_path(@team), class: "btn btn-primary" %>
+    <%= link_to 'Edit', edit_player_team_path(@team.player, @team), class: "btn btn-primary" %>
     <%= link_to 'Back', player_teams_path(@team.player), class: "btn btn-secondary" %>
   </div>
 </div>

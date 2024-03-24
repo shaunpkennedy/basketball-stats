@@ -17,23 +17,25 @@ class TeamsController < ApplicationController
     def create
        @team = @player.teams.build(team_params)
         if @team.save            
-            redirect_to player_teams_path(@player), notice: "Team was added successfully"
+            redirect_to player_path(@player), notice: "Team was added successfully"
         else
             render :new
         end
     end
   
     def edit
+        @team = Team.find(params[:id])
     end
   
-    ###def update
-    ###    @team = Team.find(params[:id])
-    ###    if @team.update(team_params)
-    ###        redirect_to @teams_path, notice: 'Team was successfully updated.'
-    ###    else
-    ###        render :edit
-    ###    end
-    ###end
+    def update
+        @team = Team.find(params[:id])
+        
+        if @team.update(team_params)
+            redirect_to player_path(@player), notice: 'Team was successfully updated.'
+        else
+            render :edit
+        end
+    end
   ###
     ###def destroy
     ###    @team = Team.find(params[:id])

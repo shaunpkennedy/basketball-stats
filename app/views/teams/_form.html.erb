@@ -1,28 +1,29 @@
 <%= form_with(model: [@player, @team]) do |form| %>
-    <%= render "shared/form_errors", form: form %>
+  <%= render "shared/form_errors", form: form %>
 
-    <div class="mb-3">
-        <%= form.label :name %>
-        <%= form.text_field :name, class: "form-control" %>
-    </div>
-
-    <div class="mb-3">
-        <%= form.label :year %>
-        <%= form.text_field :year, class: "form-control" %>
-    </div>
-
-    <div class="mb-3">
-        <%= form.label :number %>
-        <%= form.text_field :number, class: "form-control" %>
-    </div>
-
-    <div class="actions">
-    <%= form.submit "Save", class: "btn btn-primary", data: { turbo: "false" } %>
+  <div class="mb-3">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
   </div>
-    
-    
-    <% if form.object.persisted? %>
-        <%= link_to "Delete", form.object, method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %>
-    <% end %>
 
+  <div class="mb-3">
+    <%= form.label :year %>
+    <%= form.text_field :year, class: "form-control" %>
+  </div>
+
+  <div class="mb-3">
+    <%= form.label :number %>
+    <%= form.text_field :number, class: "form-control" %>
+  </div>
+
+  <div class="d-flex justify-content-between">
+    <%= form.submit "Save", class: "btn btn-primary", data: { turbo: "false" } %>
+
+    <% if form.object.persisted? %>
+      <div>
+        <%= form.hidden_field :_destroy %>
+        <%= link_to "Delete", player_team_path(@player, form.object), method: :delete, data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }, class: "btn btn-outline-danger" %>
+      </div>
+    <% end %>
+  </div>
 <% end %>
