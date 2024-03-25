@@ -1,0 +1,53 @@
+<%= form_with(model: [@team, @game]) do |form| %>
+  <%= render "shared/form_errors", form: form %>
+
+    <div class="row">
+
+      <div class="col-md-6">
+
+        <div class="mb-3">
+          <%= form.label :date %>
+          <%= form.date_field :date, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :opponent_team_name %>
+          <%= form.text_field :opponent_team_name, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :city %>
+          <%= form.text_field :city, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :is_home_team %>
+          <%= form.check_box :is_home_team, class: "form-check-input" %>
+        </div>
+
+      </div>
+
+
+      <div class="col-md-6">
+
+        <div class="mb-3">
+          <%= form.label :is_victory %>
+          <%= form.check_box :is_victory, class: "form-check-input" %>
+        </div>
+        
+        <div class="mb-3">
+          <%= form.label :score %>
+          <%= form.number_field :score, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+          <%= form.label :opponent_score %>
+          <%= form.number_field :opponent_score, class: "form-control" %>
+        </div>
+
+      </div>
+
+    </div>
+
+  <%= form.submit "Save", class: "btn btn-primary" %>
+<% end %>

@@ -1,0 +1,12 @@
+<h1>Game Details</h1>
+
+<p><strong>Date:</strong> <%= @game.date %></p>
+<p><strong>Opponent Team Name:</strong> <%= @game.opponent_team_name %></p>
+<p><strong>City:</strong> <%= @game.city %></p>
+<p><strong>Is Victory:</strong> <%= @game.is_victory %></p>
+<p><strong>Is Home Team:</strong> <%= @game.is_home_team %></p>
+<p><strong>Score:</strong> <%= @game.score %></p>
+<p><strong>Opponent Score:</strong> <%= @game.opponent_score %></p>
+
+<%= link_to 'Edit', edit_team_game_path(@team, @game) %> |
+<%= link_to 'Back', team_games_path(@team) %>

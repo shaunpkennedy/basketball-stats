@@ -8,6 +8,7 @@ class TeamsController < ApplicationController
   
     def show
         @team = Team.find(params[:id])
+        #@games = @team.games.order(date: :asc) # Fetch games sorted by date
     end
   
     def new

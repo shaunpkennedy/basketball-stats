@@ -1,16 +1,43 @@
 <div class="container mt-4">
   <h1>Team Details</h1>
 
-  <div class="card mt-4">
-    <div class="card-body">
-      <h5 class="card-title">Team Name: <%= @team.name %></h5>
-      <p class="card-text">Year: <%= @team.year %></p>
-      <p class="card-text">Number: <%= @team.number %></p>
+    <div class="card mt-4">
+      <div class="card-body">
+        <h5 class="card-title">Team Name: <%= @team.name %></h5>
+        <p class="card-text">Year: <%= @team.year %></p>
+        <p class="card-text">Number: <%= @team.number %></p>
+      </div>
     </div>
-  </div>
 
+    <div class="mt-4">
+      <%= link_to 'Edit', edit_player_team_path(@team.player, @team), class: "btn btn-primary" %>
+      <%= link_to 'Back', player_path(@team.player), class: "btn btn-secondary" %>
+    </div>
+
+  <!-- List of games -->
   <div class="mt-4">
-    <%= link_to 'Edit', edit_player_team_path(@team.player, @team), class: "btn btn-primary" %>
-    <%= link_to 'Back', player_teams_path(@team.player), class: "btn btn-secondary" %>
+    <h2>Games</h2>
+    <% if @team.games.any? %>
+      <ul class="list-group">
+        <% @team.games.sort_by(&:date).each do |game| %>
+          <li class="list-group-item">
+            <%= link_to edit_team_game_path(@team, game), class: "btn btn-link" do %>
+              <i class="bi bi-pencil-square"></i> <!-- Edit icon -->
+            <% end %>  
+
+            <%= link_to game.date, team_game_path(@team, game) %> |
+            <%= game.opponent_team_name %> |
+            <%= game.city %> |
+            <%= game.is_victory ? 'Victory' : 'Defeat' %> |
+            <%= game.is_home_team ? 'Home' : 'Away' %>
+          </li>
+        <% end %>
+      </ul>
+    <% else %>
+      <p>No games found for this team.</p>
+    <% end %>
   </div>
 </div>
+
+<!-- Button to add game(s) -->
+<%= link_to "Add Game", new_team_game_path(@team), class: "btn btn-primary mt-3" %>
